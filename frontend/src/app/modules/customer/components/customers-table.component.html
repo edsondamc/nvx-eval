@@ -1,0 +1,41 @@
+<div class="bg-white shadow-lg rounded-lg p-6">
+  <h1 class="text-2xl font-bold mb-4">Clientes</h1>
+
+  <div class="shadow-xs">
+    <div class="inline-block w-full align-middle">
+      <div class="overflow-hidden">
+        <table class="w-full divide-y divide-gray-200 table-fixed table-auto border">
+          <thead class="bg-gray-100">
+          <tr>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase" style="width: 5%">
+              ID
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase truncate" style="width: 30%">
+              Nombre completo
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase break-words whitespace-normal" style="width: 30%">
+              Cliente
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase truncate" style="width: 20%">
+              Teléfono
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase text-center" style="width: 15%">
+              Fecha de creación
+            </th>
+          </tr>
+          </thead>
+
+          <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let customer of customers" class="hover:bg-gray-100">
+            <td class="py-2 px-3 text-sm font-medium text-gray-900 whitespace-nowrap overflow-auto">{{ customer.id }}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-500 whitespace-nowrap truncate">{{ customer?.firstName + ' ' + customer.lastName}}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-500 whitespace-nowrap truncate">{{ customer.email}}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-500 whitespace-nowrap truncate">{{ customer.phone }}</td>
+            <td class="py-2 px-3 text-xs font-medium text-gray-900 text-center font-mono">{{ customer.createdAt | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

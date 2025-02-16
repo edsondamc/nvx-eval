@@ -1,0 +1,34 @@
+<header class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
+  <!-- logo -->
+  <h1 class="w-3/12">
+    <a [routerLink]="['/home']" href="">
+      <img src="./assets/icons/rocket_32.png"/>
+    </a>
+  </h1>
+
+  <!-- navigation -->
+  <nav class="nav font-semibold text-lg">
+    <ul class="flex items-center">
+      <li [routerLink]="['/users']" class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+        <a>Usuarios</a>
+      </li>
+      <li [routerLink]="['/products']" class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer active">
+        <a>Productos</a>
+      </li>
+      <li [routerLink]="['/customers']" class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+        <a>Clientes</a>
+      </li>
+      <li [routerLink]="['/orders']" class="p-4 border-b-2 border-green-500 border-opacity-0 hover:border-opacity-100 hover:text-green-500 duration-200 cursor-pointer">
+        <a>Pedidos</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="w-3/12 flex justify-end gap-2">
+  </div>
+</header>
+
+<div class="flex min-h-screen justify-center bg-gray-100">
+  <div class="w-full max-w-7xl p-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

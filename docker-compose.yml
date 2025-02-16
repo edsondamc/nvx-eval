@@ -1,0 +1,20 @@
+services:
+  database:
+    container_name: eval-database
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - DB_GRAPHILE_USER=${DB_GRAPHILE_USER}
+      - DB_GRAPHILE_PASS=${DB_GRAPHILE_PASS}
+      - DB_ROLE_USER=${DB_ROLE_USER}
+      - DB_ROLE_ANONYMOUS=${DB_ROLE_ANONYMOUS}
+      - TZ=${TZ}
+    restart: 'no'
+    volumes:
+      - ./database/data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'

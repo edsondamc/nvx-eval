@@ -1,0 +1,12 @@
+query ListProducts {
+  products {
+    id
+    name
+    description
+    price
+    createdAt
+    category {
+      name
+    }
+  }
+}

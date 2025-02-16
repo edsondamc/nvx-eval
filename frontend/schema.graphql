@@ -1,0 +1,112 @@
+# This file was generated. Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+"Indicates exactly one field must be supplied and this field must not be `null`."
+directive @oneOf on INPUT_OBJECT
+
+type Category {
+  createdAt: DateTime!
+  description: String!
+  id: Float!
+  name: String!
+}
+
+type Customer {
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  id: Float!
+  lastName: String!
+  phone: String!
+}
+
+type Mutation {
+  createOrder(input: CreateOrderInput!): Order!
+  createProduct(input: CreateProductInput!): Product!
+  createUser(input: CreateUserInput!): User!
+}
+
+type Order {
+  createdAt: DateTime!
+  customer: Customer
+  customerId: Float
+  details: [OrderDetail!]
+  id: Float!
+  shippingAddress: String!
+  status: String!
+  totalAmount: Float!
+}
+
+type OrderDetail {
+  createdAt: DateTime!
+  id: Float!
+  order: Order
+  orderId: Float
+  price: String!
+  product: Product
+  productId: Float
+  quantity: Float!
+  totalAmount: String!
+}
+
+type Product {
+  category: Category
+  categoryId: Float
+  createdAt: DateTime!
+  description: String
+  id: Float!
+  name: String!
+  price: String!
+  stock: Float!
+}
+
+type Query {
+  categories: [Category!]!
+  category(id: Float!): Category
+  customers: [Customer!]!
+  orders: [Order!]!
+  products: [Product!]!
+  user(id: Float!): User!
+  users: [User!]!
+}
+
+type User {
+  createdAt: DateTime!
+  firstName: String!
+  id: Float!
+  lastName: String!
+}
+
+"A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format."
+scalar DateTime
+
+input CreateOrderInput {
+  customerId: Int!
+  details: [OrderDetailInput!]!
+  shippingAddress: String!
+  totalAmount: Float!
+}
+
+input CreateProductInput {
+  categoryId: Int!
+  description: String!
+  name: String!
+  price: Float!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  password: String!
+  username: String!
+}
+
+input OrderDetailInput {
+  price: Float!
+  productId: Int!
+  quantity: Int!
+}

@@ -1,0 +1,10 @@
+query ListCustomer {
+  customers {
+    id
+    firstName
+    lastName
+    email
+    phone
+    createdAt
+  }
+}

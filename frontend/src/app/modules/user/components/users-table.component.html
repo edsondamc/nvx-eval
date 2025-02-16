@@ -1,0 +1,37 @@
+<div class=" bg-white shadow-lg rounded-lg p-6">
+  <h1 class="text-2xl font-bold mb-4">Usuarios</h1>
+
+  <div class="overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="inline-block min-w-full align-middle">
+      <div class="overflow-hidden">
+        <table class="min-w-full divide-y divide-gray-200 table-fixed">
+          <thead class="bg-gray-100">
+          <tr>
+            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
+              ID
+            </th>
+            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
+              Username
+            </th>
+            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
+              Nombre
+            </th>
+            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase ">
+              Fecha de creación
+            </th>
+          </tr>
+          </thead>
+
+          <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let user of users" class="hover:bg-gray-100">
+            <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">{{ user.id }}</td>
+            <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">{{ user.firstName }}</td>
+            <td class="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap ">{{ user.lastName }}</td>
+            <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap ">{{ user.createdAt | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

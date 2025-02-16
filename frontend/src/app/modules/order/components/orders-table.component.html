@@ -1,0 +1,48 @@
+<div class="bg-white shadow-lg rounded-lg p-6">
+  <div class="flex flex-row justify-between pb-4">
+    <h1 class="text-2xl font-bold content-center">Pedidos</h1>
+    <button [routerLink]="['create']" class="bg-blue-500 border flex justify-center items-center text-white px-4 py-2 rounded-md focus:outline-none">Nuevo</button>
+  </div>
+
+  <div class="shadow-xs">
+    <div class="inline-block w-full align-middle">
+      <div class="overflow-hidden">
+        <table class="w-full divide-y divide-gray-200 table-fixed table-auto border">
+          <thead class="bg-gray-100">
+          <tr>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase" style="width: 5%">
+              ID
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-right text-gray-700 uppercase truncate" style="width: 15%">
+              Monto total
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase break-words whitespace-normal" style="width: 20%">
+              Cliente
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase truncate" style="width: 35%">
+              Dirección de envío
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase truncate" style="width: 10%">
+              Estado
+            </th>
+            <th scope="col" class="py-3 px-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase text-center" style="width: 15%">
+              Fecha de creación
+            </th>
+          </tr>
+          </thead>
+
+          <tbody class="bg-white divide-y divide-gray-200">
+          <tr *ngFor="let order of orders" class="hover:bg-gray-100">
+            <td class="py-2 px-3 text-sm font-medium text-gray-900 whitespace-nowrap overflow-auto">{{ order.id }}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-900 whitespace-nowrap truncate text-end">{{ order.totalAmount }}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-500 whitespace-nowrap truncate">{{ order.customer?.firstName + ' ' + order.customer?.lastName}}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-500 break-all overflow-auto">{{ order.shippingAddress }}</td>
+            <td class="py-2 px-3 text-sm font-medium text-gray-500 break-all overflow-auto uppercase">{{ order.status }}</td>
+            <td class="py-2 px-3 text-xs font-medium text-gray-900 text-center font-mono">{{ order.createdAt | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

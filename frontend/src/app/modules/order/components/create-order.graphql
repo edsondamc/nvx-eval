@@ -1,0 +1,18 @@
+mutation CreateOrder(
+  $totalAmount: Float!
+  $shippingAddress: String!
+  $customerId: Int!
+  $details: [OrderDetailInput!]!
+) {
+  createOrder(
+    input: {
+      totalAmount: $totalAmount
+      shippingAddress: $shippingAddress
+      customerId: $customerId
+      details: $details
+    }
+  ) {
+    id
+    createdAt
+  }
+}

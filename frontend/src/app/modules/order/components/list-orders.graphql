@@ -1,0 +1,14 @@
+query ListOrders {
+  orders {
+    id
+    totalAmount
+    shippingAddress
+    status
+    createdAt
+    customer {
+      id
+      firstName
+      lastName
+    }
+  }
+}
